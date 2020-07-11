@@ -1,19 +1,50 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <!-- <div id="app"> -->
+  <el-container>
+    <el-header>
+      <!-- 导航栏 -->
+      <navigator></navigator>
+    </el-header>
+    <el-main>
+      <img alt="Vue logo" src="./assets/logo.png" width="10%" height="10%" />
+      <!-- 使用element UI的栅格控制myaudio的宽度并居中 -->
+      <el-row>
+        <el-col :span="8">
+          <div class="grid-content"></div>
+        </el-col>
+        <el-col :span="8">
+          <div class="grid-content">
+            <myaudio></myaudio>
+          </div>
+        </el-col>
+        <el-col :span="8">
+          <div class="grid-content"></div>
+        </el-col>
+      </el-row>
+      <!-- <el-divider></el-divider> -->
+      <!-- 对录音组件居中 -->
+      <!-- <div class="center">
+        <myAudioRecorder></myAudioRecorder>
+      </div>-->
+    </el-main>
+    <el-footer></el-footer>
+  </el-container>
+  <!-- </div> -->
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from "./components/HelloWorld.vue";
+import myaudio from "./components/myaudio.vue";
+import navigator from "./components/navigator.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    // HelloWorld,
+    myaudio,
+    navigator
   }
-}
+};
 </script>
 
 <style>
@@ -24,5 +55,38 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.el-row {
+  margin-bottom: 20px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.el-col {
+  border-radius: 4px;
+}
+.bg-purple-dark {
+  background: #99a9bf;
+}
+.bg-purple {
+  background: #d3dce6;
+}
+.bg-purple-light {
+  background: #e5e9f2;
+}
+.grid-content {
+  border-radius: 4px;
+  min-height: 36px;
+}
+.row-bg {
+  padding: 10px 0;
+  background-color: #f9fafc;
 }
 </style>
